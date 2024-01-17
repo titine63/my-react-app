@@ -1,22 +1,10 @@
 //PokemonCard.tsx
 
-import React from 'react';
-
-
-const pokemonList = [
-    {
-      name: "bulbasaur",
-      imgSrc:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
-    },
-    {
-      name: "mew",
-    },
-  ];
-
-const PokemonCard = () => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const PokemonCard = (props : any) => {
+    console.log(props);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const pokemon = pokemonList[1];
+    const {pokemon} = props;
     return (
         <figure>
             {pokemon.imgSrc ? (
