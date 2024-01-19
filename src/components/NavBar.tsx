@@ -1,16 +1,27 @@
-// Définis une interface pour les types de props
-interface NavBarProps {
-  goToPrevious: () => void;
-  goToNext: () => void;
-  canGoPrevious: boolean;
-  canGoNext: boolean;
+//NavBar.tsx
+
+import React from 'react';
+
+// Définition de l'interface pour un Pokémon individuel
+interface Pokemon {
+  name: string;
+  imgSrc?: string; // imgSrc est optionnel
 }
-// Utilisation de l'interface NavBarProps pour typer les props de NavBar
-const NavBar: React.FC<NavBarProps> = ({ goToPrevious, goToNext, canGoPrevious, canGoNext }) => {
+
+// Définition de l'interface pour les props de NavBar
+interface NavBarProps {
+  pokemonList: Pokemon[];
+  onPokemonChange: (index: number) => void;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ pokemonList, onPokemonChange }) => {
   return (
     <nav>
-      {canGoPrevious && <button onClick={goToPrevious}>Précédent</button>}
-      {canGoNext && <button onClick={goToNext}>Suivant</button>}
+      {pokemonList.map((pokemon, index) => (
+        <button key={index} onClick={() => onPokemonChange(index)}>
+          {pokemon.name}
+        </button>
+      ))}
     </nav>
   );
 };
