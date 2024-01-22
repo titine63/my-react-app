@@ -1,6 +1,6 @@
 //App.tsx
 
-
+import { useEffect } from 'react';
 import './App.css'
 import PokemonCard from './components/PokemonCard';
 import { SetStateAction, useState} from 'react';
@@ -39,7 +39,10 @@ function App() {
   function handlePokemonChange(newIndex: SetStateAction<number>) {
     setPokemonIndex(newIndex);
   }
-    
+  // Utilisez useEffect pour afficher l'alerte au démarrage
+  useEffect(() => {
+    alert("hello pokemon trainer :)");
+  }, []);  
   
   return (
     <div>
